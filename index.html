@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dark-theme">
+    <div class="container">
+        <h1>Time Converter</h1>
+
+        <section id="section1">
+            <h2>Input Time</h2>
+            <div class="input-group">
+                <div class="input-item">
+                    <label for="timezoneSelect">Timezone:</label>
+                    <input type="text" id="timezoneInput" list="timezoneList" placeholder="Select or type">
+                    <datalist id="timezoneList"></datalist>
+                </div>
+                <div class="input-item">
+                    <label for="daySelect">Day:</label>
+                    <input type="text" id="dayInput" list="dayList" placeholder="Select or type">
+                    <datalist id="dayList"></datalist>
+                </div>
+
+                <div class="input-item">
+                    <label for="timeInput">Time:</label>
+                    <div class="time-input-container">
+                        <input type="number" id="hourInput" class="hour-input" min="1" max="12" placeholder="HH"
+                            required>
+                        <input type="number" id="minuteInput" class="minute-input" min="0" max="59" placeholder="MM"
+                            required>
+                    </div>
+                </div>
+
+
+                <div class="input-item">
+                    <label for="amPmToggle">AM/PM:</label>
+                    <button id="amPmToggle">AM</button>
+                </div>
+
+                <div class="input-item">
+                    <button id="convertBtn">Convert</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="section2">
+            <h2>Current Time</h2>
+            <div id="userTimezone" class="timezone-item"></div>
+            <h2>Converted Times</h2>
+            <div id="convertedTimes"></div>
+        </section>
+
+        <section id="section3">
+            <h2>Share</h2>
+            <input type="text" id="shareLink" readonly>
+            <button id="copyBtn">Copy Link</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

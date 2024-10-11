@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --bg-color: #1C1C1E;
+    /* Dark background */
+    --text-color: #FFFFFF;
+    /* Primary Text */
+    --secondary-text-color: #D1D1D6;
+    /* Secondary Text */
+    --muted-text-color: #A1A1A6;
+    /* Muted Text */
+    --primary-color: #4B88E0;
+    /* Primary Accent (Blue) */
+    --secondary-color: #0BB7A1;
+    /* Secondary Accent (Teal) */
+    --surface-color: #2C2C2E;
+    /* Surface */
+    --error-color: #FF3B30;
+    /* Error */
+    --input-focus: rgba(75, 136, 224, 0.4);
+    /* Focus state border color (Blue with transparency) */
+    --shadow-color: rgba(0, 0, 0, 0.7);
+    /* Shadow */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+h1,
+h2 {
+    color: var(--primary-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+section {
+    background: var(--surface-color);
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.input-item {
+    flex: 1;
+    min-width: 180px;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--secondary-color);
+    font-weight: 400;
+}
+
+input[type="text"],
+input[type="number"],
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px var(--input-focus);
+    outline: none;
+}
+
+/* Style for the hours and minutes input container */
+.time-input-container {
+    display: flex;
+    align-items: center;
+}
+
+.time-input-container input {
+    flex: 1;
+    border-radius: 6px 0 0 6px;
+    border-right: none;
+    /* Remove border between inputs */
+}
+
+.time-input-container input:last-child {
+    border-radius: 0 6px 6px 0;
+}
+
+/* Specific styles for hour and minute inputs */
+.hour-input {
+    width: 60px;
+    /* Set fixed width for hour input */
+}
+
+.minute-input {
+    width: 60px;
+    /* Set fixed width for minute input */
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#amPmToggle {
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.timezone-item {
+    background-color: rgba(187, 134, 252, 0.2);
+    /* Subtle accent background for timezone */
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.2s ease;
+}
+
+.timezone-item:hover {
+    transform: translateY(-5px);
+}
+
+#userTimezone {
+    font-weight: bold;
+    border: 1px solid var(--primary-color);
+    padding: 8px;
+    border-radius: 6px;
+}
+
+#convertedTimes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+#shareLink {
+    width: calc(100% - 120px);
+    margin-right: 10px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--primary-color);
+    cursor: text;
+    padding: 10px;
+    border-radius: 6px;
+    transition: box-shadow 0.3s ease;
+}
+
+#shareLink:focus {
+    box-shadow: 0 0 10px var(--input-focus);
+}
+
+#copyBtn {
+    width: 100px;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+    .input-item {
+        flex: 100%;
+    }
+
+    #shareLink {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    #copyBtn {
+        width: 100%;
+    }
+}
