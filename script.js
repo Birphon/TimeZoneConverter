@@ -160,8 +160,10 @@ function displayUserTimezone() {
 function convertTime() {
 	const selectedTimezone = document.getElementById("timezoneInput").value;
 	const selectedDay = document.getElementById("dayInput").value;
-	const hoursInput = document.getElementById("hoursInput").value;
-	const minutesInput = document.getElementById("minutesInput").value;
+
+	// Use correct IDs for hour and minute inputs
+	const hoursInput = document.getElementById("hourInput").value;
+	const minutesInput = document.getElementById("minuteInput").value;
 	const amPm = document.getElementById("amPmToggle").textContent;
 
 	if (!selectedTimezone || !selectedDay || !hoursInput || !minutesInput) {
