@@ -220,13 +220,21 @@ function toggleAmPm() {
 function updateShareLink() {
 	const shareLink = document.getElementById("shareLink");
 	const params = new URLSearchParams(window.location.search);
+
+	// Get the base URL dynamically to handle GitHub Pages correctly
+	const baseUrl = window.location.origin + window.location.pathname;
+
 	params.set("timezone", document.getElementById("timezoneInput").value);
 	params.set("day", document.getElementById("dayInput").value);
-	params.set("time", document.getElementById("timeInput").value);
+	params.set(
+		"time",
+		document.getElementById("hourInput").value +
+			":" +
+			document.getElementById("minuteInput").value
+	);
 	params.set("ampm", document.getElementById("amPmToggle").textContent);
-	shareLink.value = `${window.location.origin}${
-		window.location.pathname
-	}?${params.toString()}`;
+
+	shareLink.value = `${baseUrl}?${params.toString()}`;
 }
 
 // Copy share link to clipboard
@@ -236,7 +244,7 @@ function copyShareLink() {
 	document.execCommand("copy");
 	alert("Link copied to clipboard!");
 }
-// Display user's timezone in the desired format
+
 // Display user's timezone in the desired format
 function displayUserTimezone() {
 	// Get the user's timezone short name
@@ -297,7 +305,12 @@ function init() {
 	) {
 		document.getElementById("timezoneInput").value = params.get("timezone");
 		document.getElementById("dayInput").value = params.get("day");
-		document.getElementById("timeInput").value = params.get("time");
+
+		// Split the time parameter to set hour and minute inputs
+		const time = params.get("time").split(":");
+		document.getElementById("hourInput").value = time[0];
+		document.getElementById("minuteInput").value = time[1];
+
 		document.getElementById("amPmToggle").textContent = params.get("ampm");
 		convertTime();
 	}
